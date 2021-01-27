@@ -1,23 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { setPosts, addPost, removePost, selectPosts } from './store/posts'
 import { useEffect } from 'react';
-
-function fetchServerData(){
-  return new Promise((resolve) => {
-    resolve([
-      { id: 1, content: 'First Posts' },
-      { id: 2, content: 'Second Posts' },
-      { id: 3, content: 'Third Posts' },
-    ])
-  })
-}
-
-function getNewPost(){
-  return {
-    id: new Date().getTime(),
-    content: new Date().toTimeString()
-  }
-}
+import fetchServerData from './utils/fetchServerData'
+import getNewPost from './utils/getNewPost'
 
 function App() {
   const dispatch = useDispatch()
